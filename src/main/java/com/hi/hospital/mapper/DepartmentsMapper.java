@@ -23,4 +23,7 @@ public interface DepartmentsMapper {
     Departments selectById(int id);
 
     List<Departments> selectByPid(int pid);
+
+    // 根据id删除部门
+    int deleteById(int id);
 }

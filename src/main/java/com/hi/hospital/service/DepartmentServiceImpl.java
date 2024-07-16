@@ -87,6 +87,7 @@ public class DepartmentServiceImpl {
                 departments.setDepartmentsDescription(deptDesc);
 
                 if (deptPid == -1) { // 顶级部门
+                    System.out.println("插入顶级部门");
                     departments.setDepartmentsPid(0);
                     departments.setDepartmentsLevel(1);
                     departments.setDepartmentsPath("|" + departments.getDepartmentsId() + "|");
@@ -110,5 +111,11 @@ public class DepartmentServiceImpl {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public int deleteById(int Id) {
+        SqlSession sqlSession = MyBatisUtils.getSqlSession();
+        DepartmentsMapper departmentsMapper = sqlSession.getMapper(DepartmentsMapper.class);
+        return departmentsMapper.deleteById(Id);
     }
 }

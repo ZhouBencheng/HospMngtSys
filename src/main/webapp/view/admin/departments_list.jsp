@@ -39,11 +39,23 @@
                         trObj.append ($("<td>"+v.departmentsId+"</td>"));
                         trObj.append ($("<td>"+v.departmentsName+"</td>"));
                         trObj.append ($("<td>"+v.departmentsDescription+"</td>"));
+                        trObj.append('<td>' +
+                                                    '<div class="button-group">' +
+                                                        '<a class="button border-main" href="view/admin/edit.jsp?deptId='+v.departmentsId+'&deptName='+v.departmentsName+'&deptDesc='+v.departmentsDescription+'">' +
+                                                            '<span class="icon-edit"></span> 修改' +
+                                                        '</a>' +
+                                                        '<a class="button border-red" href="javascript:void(0)" onclick="return del('+v.departmentsId+')">' +
+                                                            '<span class="icon-trash-o"></span> 删除' +
+                                                        '</a>' +
+                                                    '</div>' +
+                                                '</td>'
+                        );
                         trObj.appendTo($("#subMenu" + index + " tbody"));
                     })
                     isRequestInProgress = false;
                 },
                 error: function () {
+                    console.log("Error occurred while fetching sub departments list")
                     isRequestInProgress = false;
                 }
            })
@@ -79,11 +91,13 @@
             <td>${dept.departmentsDescription}</td>
             <td>
                 <div class="button-group">
-                    <a class="button border-main" href="cateedit.html">
+                    <a class="button border-main" href="view/admin/edit.jsp?deptId=${dept.departmentsId}
+                                                                 &deptName=${dept.departmentsName}
+                                                                 &deptDesc=${dept.departmentsDescription}">
                         <span class="icon-edit"></span>
                         修改
                     </a>
-                    <a class="button border-red" href="javascript:void(0)" onclick="return del(1,2)">
+                    <a class="button border-red" href="javascript:void(0)" onclick="return del(${dept.departmentsId})">
                         <span class="icon-trash-o"></span>
                         删除
                     </a>
@@ -98,6 +112,7 @@
                             <td>ID</td>
                             <td>科室名称</td>
                             <td>描述</td>
+                            <td>操作</td>
                         </tr>
                         <tbody>
 
@@ -110,14 +125,14 @@
     <tr>
         <td colspan="8">
             <div class="pagelist">
-                <a href="/departmentsList?pageNum=${pageInfo.prePage}">上一页</a>
+                <a href="<c:url value="/departmentsList?pageNum=${pageInfo.prePage}"/>">上一页</a>
                 <c:forEach items="${pageInfo.navigatepageNums}" var="i">
                     <c:choose>
                         <c:when test="${pageInfo.pageNum == i}">
-                            <a href="/departmentsList?pageNum=${i}" style="background-color: #09F">${i}</a>
+                            <a href="<c:url value="/departmentsList?pageNum=${i}"/>" style="background-color: #09F">${i}</a>
                         </c:when>
                         <c:when test="${pageInfo.pageNum != i}">
-                            <a href="/departmentsList?pageNum=${i}">${i}</a>
+                            <a href="<c:url value="/departmentsList?pageNum=${i}"/>">${i}</a>
                         </c:when>
                     </c:choose>
                 </c:forEach>
@@ -125,18 +140,18 @@
                     <a href="javascript:alert('已经是最后一页了')">下一页</a>
                 </c:if>
                 <c:if test="${!pageInfo.isLastPage}">
-                    <a href="/departmentsList?pageNum=${pageInfo.nextPage}">下一页</a>
+                    <a href="<c:url value="/departmentsList?pageNum=${pageInfo.nextPage}"/>">下一页</a>
                 </c:if>
-                <a href="/departmentsList?pageNum=${pageInfo.pages}">尾页</a>
+                <a href="<c:url value="/departmentsList?pageNum=${pageInfo.pages}"/>">尾页</a>
             </div>
         </td>
     </tr>
   </table>
 </div>
 <script type="text/javascript">
-function del(id,mid){
+function del(id){
 	if(confirm("您确定要删除吗?")){
-
+        window.location.href = "/departmentsDelete?deptId=" + encodeURIComponent(id);
 	}
 }
 </script>

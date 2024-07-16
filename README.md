@@ -51,8 +51,18 @@ webapp
 1. 家人们尽可能为自己写的代码添加注释，函数定义可参照javadoc的编写方式
 2. 代码中尽量使用驼峰命名法，类名首字母大写，变量名首字母小写
 3. 目录名都采用**小写**，java文件名采用**大驼峰**，xml和jsp文件名采用**小写+下划线**的方式
+4. 开发的功能代码尽量用直观的**文件夹**管理，以科室管理功能为例，`departments`的`servlet`处理均在`servlet/departments`目录下，以此类推，前端JSP文件管理方法相同
 
 ## 3. Git浅解
 参考南大PA课程的Git快速入门，[点击这里](https://nju-projectn.github.io/ics-pa-gitbook/ics2024/git.html)
 
-## 4.test
+## 4. Log
+
+### 4.1 2024-07-16
+
+- zc 分支测试成功，权限不合理
+  - /*TODO*/ 启用organization形式进行管理
+- zbc 完成科室管理界面功能
+  - /*TODO*/ 子表展示重复，待修复bug
+  - /*TODO*/ 科室不可删除，因为数据库内置外键限制，需要ER图厘清各表关系
+  - /*TODO*/ 项目整体UI待爬取

@@ -46,6 +46,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </select>
 
     <update id="updateById" >
-        update departments set department_name = #{name}, department_desc = #{desc} where department_id = #{id}
+        update departments set department_name = #{name}, department_description = #{desc} where department_id = #{id}
     </update>
+
+    <delete id="deleteById">
+        delete from departments where department_id = #{id}
+    </delete>
+
 </mapper>

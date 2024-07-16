@@ -22,6 +22,9 @@ public class DepartmentsSaveServlet extends HttpServlet {
         req.setCharacterEncoding("utf-8");
 
         String deptPid = req.getParameter("deptPid");
+
+        System.out.println("Succeeded to get department parent id: " + deptPid);
+
         String departmentName = req.getParameter("departmentName");
         String departmentDescription = req.getParameter("departmentDescription");
 
