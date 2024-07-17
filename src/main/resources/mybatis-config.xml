@@ -24,5 +24,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     </environments>
     <mappers>
         <mapper resource="com/hi/hospital/mapper/DepartmentsMapper.xml"/>
+        <mapper resource="com/hi/hospital/mapper/DoctorsMapper.xml"/>
     </mappers>
 </configuration>

@@ -74,10 +74,10 @@
               <a class="nav-link text-dark active p-0 mt-3 mt-lg-0" aria-current="page" href="index.jsp">首页</a>
             </li>
             <li class="nav-item ps-4 pe-4 border-right">
-              <a class="nav-link text-dark p-0" href="javascript:void(0);" onclick="changeContent('departmentsList')">科室管理</a>
+              <a class="nav-link text-dark p-0" href="javascript:void(0);" onclick="changeContent('/departmentsList')">科室管理</a>
             </li>
             <li class="nav-item ps-4 pe-4 border-right">
-              <a class="nav-link text-dark p-0" href="#our-services">医生管理</a>
+              <a class="nav-link text-dark p-0" href="javascript:void(0);" onclick="changeContent('/view/admin/doctors_list.jsp')">医生管理</a>
             </li>
             <li class="nav-item ps-4 pe-4 border-right">
               <a class="nav-link text-dark p-0" href="#book-appointment">排班管理</a>
