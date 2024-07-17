@@ -36,7 +36,8 @@ public class DoctorsListServlet extends HttpServlet {
         String deptId = req.getParameter("deptId");
 
         DoctorsServiceImpl service = new DoctorsServiceImpl();
-        PageInfo<Doctors> pageInfo = service.queryByPage(i, 5, jobNumber, docName, Integer.parseInt(deptId));
+
+        PageInfo<Doctors> pageInfo = service.queryByPage(i, 5, jobNumber, docName, deptId == null ? null : Integer.parseInt(deptId));
 
         ObjectMapper objectMapper = new ObjectMapper();
         String jsonStr = objectMapper.writeValueAsString(pageInfo);

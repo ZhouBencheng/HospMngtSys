@@ -14,7 +14,7 @@
         <result column="registration_fee" property="registrationFee" />
         <result column="entry_date" property="entryDate" />
         <association property="departments" javaType="com.hi.hospital.entity.Departments">
-            <result column="departments_name" property="departmentsName"></result>
+            <result column="department_name" property="departmentsName"></result>
         </association>
         <association property="professionalTitles" javaType="com.hi.hospital.entity.ProfessionalTitles">
             <result column="title_name" property="titleName"></result>

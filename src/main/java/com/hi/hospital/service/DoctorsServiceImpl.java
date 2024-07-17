@@ -11,11 +11,11 @@ import java.util.List;
 
 public class DoctorsServiceImpl {
 
-    public PageInfo<Doctors> queryByPage(int pageNum,int pageSize,String jobNumber,String name,int deptId){
+    public PageInfo<Doctors> queryByPage(int pageNum, int pageSize, String jobNumber, String name, Integer deptId){
         SqlSession sqlSession = MyBatisUtils.getSqlSession();
         DoctorsMapper mapper = sqlSession.getMapper(DoctorsMapper.class);
         PageHelper.startPage(pageNum,pageSize);
-        List<Doctors> list = mapper.selectAll(jobNumber,name,deptId);
+        List<Doctors> list = mapper.selectAll(jobNumber, name, deptId);
         PageInfo<Doctors> pageInfo = new PageInfo<>(list);
         return pageInfo;
     }

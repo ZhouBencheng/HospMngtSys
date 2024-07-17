@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -6,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta name="renderer" content="webkit">
 <title></title>
-<link rel="stylesheet" href="../css/pintuer.css">
-<link rel="stylesheet" href="../css/admin.css">
-<script src="../js/jquery-3.7.1.min.js"></script>
-<script src="../js/utilities.js"></script>
+<link rel="stylesheet" href="../../css/pintuer.css">
+<link rel="stylesheet" href="../../css/admin.css">
+<script src="../../js/jquery-3.7.1.min.js"></script>
+<script src="../../js/utilities.js"></script>
 </head>
 <body>
 <form method="post" action="" id="listform">
@@ -79,7 +80,7 @@
             <td style="text-align:left; padding-left:20px;"><input type="checkbox" name="id[]" value="" />
                 1</td>
             <td><input type="text" name="sort[1]" value="1" style="width:50px; text-align:center; border:1px solid #ddd; padding:7px 0;" /></td>
-            <td width="10%"><img src="../images/11.jpg" alt="" width="70" height="50" /></td>
+            <td width="10%"><img src="../../images/11.jpg" alt="" width="70" height="50" /></td>
             <td>这是一套MUI后台精美管理系统，感谢您的支持</td>
             <td><font color="#00CC99">首页</font></td>
             <td>产品分类</td>
@@ -88,44 +89,6 @@
         </tr>
         </tbody>
 
-
-      <tr>
-        <td style="text-align:left; padding:19px 0;padding-left:20px;"><input type="checkbox" id="checkall"/>
-          全选 </td>
-        <td colspan="7" style="text-align:left;padding-left:20px;"><a href="javascript:void(0)" class="button border-red icon-trash-o" style="padding:5px 15px;" onclick="DelSelect()"> 删除</a> <a href="javascript:void(0)" style="padding:5px 15px; margin:0 10px;" class="button border-blue icon-edit" onclick="sorts()"> 排序</a> 操作：
-          <select name="ishome" style="padding:5px 15px; border:1px solid #ddd;" onchange="changeishome(this)">
-            <option value="">首页</option>
-            <option value="1">是</option>
-            <option value="0">否</option>
-          </select>
-          <select name="isvouch" style="padding:5px 15px; border:1px solid #ddd;" onchange="changeisvouch(this)">
-            <option value="">推荐</option>
-            <option value="1">是</option>
-            <option value="0">否</option>
-          </select>
-          <select name="istop" style="padding:5px 15px; border:1px solid #ddd;" onchange="changeistop(this)">
-            <option value="">置顶</option>
-            <option value="1">是</option>
-            <option value="0">否</option>
-          </select>
-          &nbsp;&nbsp;&nbsp;
-          
-          移动到：
-          <select name="movecid" style="padding:5px 15px; border:1px solid #ddd;" onchange="changecate(this)">
-            <option value="">请选择分类</option>
-            <option value="">产品分类</option>
-            <option value="">产品分类</option>
-            <option value="">产品分类</option>
-            <option value="">产品分类</option>
-          </select>
-          <select name="copynum" style="padding:5px 15px; border:1px solid #ddd;" onchange="changecopy(this)">
-            <option value="">请选择复制</option>
-            <option value="5">复制5条</option>
-            <option value="10">复制10条</option>
-            <option value="15">复制15条</option>
-            <option value="20">复制20条</option>
-          </select></td>
-      </tr>
       <tr>
         <td colspan="8"><div class="pagelist"> <a href="">上一页</a> <span class="current">1</span><a href="">2</a><a href="">3</a><a href="">下一页</a><a href="">尾页</a> </div></td>
       </tr>
@@ -141,13 +104,12 @@ function initDocList(){
         url: "/doctorsList",
         type: "GET",
         dataType: "json",
-        data: {"pageNum":1,"deptId":6},
+        data: {"pageNum":1},
         success: function (res) {
             // console.log($button.attr("deptPid"));
             console.log("res",res);
             // $('#subMenu' + index + ' tbody').empty();
             $.each(res.list, function (i, v) {
-                console.log(res);
                 var trObj = $("<tr></tr>");
                 trObj.append ($("<td>"+(i+1)+"</td>"));
                 trObj.append ($("<td>"+v.jobNumber+"</td>"));
@@ -172,19 +134,19 @@ $(function (){
 })
 
 //搜索
-function changesearch(){	
-		
+function changesearch(){
+
 }
 
 //单个删除
 function del(id,mid,iscid){
 	if(confirm("您确定要删除吗?")){
-		
+
 	}
 }
 
 //全选
-$("#checkall").click(function(){ 
+$("#checkall").click(function(){
   $("input[name='id[]']").each(function(){
 	  if (this.checked) {
 		  this.checked = false;
@@ -199,14 +161,14 @@ $("#checkall").click(function(){
 function DelSelect(){
 	var Checkbox=false;
 	 $("input[name='id[]']").each(function(){
-	  if (this.checked==true) {		
-		Checkbox=true;	
+	  if (this.checked==true) {
+		Checkbox=true;
 	  }
 	});
 	if (Checkbox){
 		var t=confirm("您确认要删除选中的内容吗？");
-		if (t==false) return false;		
-		$("#listform").submit();		
+		if (t==false) return false;
+		$("#listform").submit();
 	}
 	else{
 		alert("请选择您要删除的内容!");
@@ -218,13 +180,13 @@ function DelSelect(){
 function sorts(){
 	var Checkbox=false;
 	 $("input[name='id[]']").each(function(){
-	  if (this.checked==true) {		
-		Checkbox=true;	
+	  if (this.checked==true) {
+		Checkbox=true;
 	  }
 	});
-	if (Checkbox){	
-		
-		$("#listform").submit();		
+	if (Checkbox){
+
+		$("#listform").submit();
 	}
 	else{
 		alert("请选择要操作的内容!");
@@ -237,17 +199,17 @@ function sorts(){
 function changeishome(o){
 	var Checkbox=false;
 	 $("input[name='id[]']").each(function(){
-	  if (this.checked==true) {		
-		Checkbox=true;	
+	  if (this.checked==true) {
+		Checkbox=true;
 	  }
 	});
 	if (Checkbox){
-		
-		$("#listform").submit();	
+
+		$("#listform").submit();
 	}
 	else{
-		alert("请选择要操作的内容!");		
-	
+		alert("请选择要操作的内容!");
+
 		return false;
 	}
 }
@@ -256,18 +218,18 @@ function changeishome(o){
 function changeisvouch(o){
 	var Checkbox=false;
 	 $("input[name='id[]']").each(function(){
-	  if (this.checked==true) {		
-		Checkbox=true;	
+	  if (this.checked==true) {
+		Checkbox=true;
 	  }
 	});
 	if (Checkbox){
-		
-		
-		$("#listform").submit();	
+
+
+		$("#listform").submit();
 	}
 	else{
-		alert("请选择要操作的内容!");	
-		
+		alert("请选择要操作的内容!");
+
 		return false;
 	}
 }
@@ -276,17 +238,17 @@ function changeisvouch(o){
 function changeistop(o){
 	var Checkbox=false;
 	 $("input[name='id[]']").each(function(){
-	  if (this.checked==true) {		
-		Checkbox=true;	
+	  if (this.checked==true) {
+		Checkbox=true;
 	  }
 	});
-	if (Checkbox){		
-		
-		$("#listform").submit();	
+	if (Checkbox){
+
+		$("#listform").submit();
 	}
 	else{
-		alert("请选择要操作的内容!");		
-	
+		alert("请选择要操作的内容!");
+
 		return false;
 	}
 }
@@ -296,17 +258,17 @@ function changeistop(o){
 function changecate(o){
 	var Checkbox=false;
 	 $("input[name='id[]']").each(function(){
-	  if (this.checked==true) {		
-		Checkbox=true;	
+	  if (this.checked==true) {
+		Checkbox=true;
 	  }
 	});
-	if (Checkbox){		
-		
-		$("#listform").submit();		
+	if (Checkbox){
+
+		$("#listform").submit();
 	}
 	else{
 		alert("请选择要操作的内容!");
-		
+
 		return false;
 	}
 }
@@ -315,24 +277,24 @@ function changecate(o){
 function changecopy(o){
 	var Checkbox=false;
 	 $("input[name='id[]']").each(function(){
-	  if (this.checked==true) {		
-		Checkbox=true;	
+	  if (this.checked==true) {
+		Checkbox=true;
 	  }
 	});
-	if (Checkbox){	
+	if (Checkbox){
 		var i = 0;
 	    $("input[name='id[]']").each(function(){
 	  		if (this.checked==true) {
 				i++;
-			}		
+			}
 	    });
-		if(i>1){ 
+		if(i>1){
 	    	alert("只能选择一条信息!");
 			$(o).find("option:first").prop("selected","selected");
 		}else{
-		
-			$("#listform").submit();		
-		}	
+
+			$("#listform").submit();
+		}
 	}
 	else{
 		alert("请选择要复制的内容!");
