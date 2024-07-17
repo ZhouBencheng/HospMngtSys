@@ -1,5 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="hi" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.31" ALTERNATIVE_JRE_ENABLED="false">
+    <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8081/" />
     <option name="UPDATING_POLICY" value="restart-server" />
     <deployment>
       <artifact name="HospitalManagement:war exploded">
@@ -10,6 +11,8 @@
     </deployment>
     <server-settings>
       <option name="BASE_DIRECTORY_NAME" value="dfb06ff4-ae26-434e-bd5f-50bf2fc54084" />
+      <option name="HTTP_PORT" value="8081" />
+      <option name="JNDI_PORT" value="1090" />
     </server-settings>
     <predefined_log_file enabled="true" id="Tomcat" />
     <predefined_log_file enabled="true" id="Tomcat Catalina" />
