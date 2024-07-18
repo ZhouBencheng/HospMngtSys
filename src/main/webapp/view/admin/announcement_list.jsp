@@ -32,11 +32,22 @@
         <tr>
             <td>${ann.announcementId}</td>
             <td>${ann.title}</td>
+            <td><img width="100" height="70" src="../../images/${ann.image}"></td>
             <td>${fn:substring(ann.content, 0, 20)}...</td>
             <td>${ann.creationTime}</td>
             <td>${ann.creator}</td>
             <td>
                 <div class="button-group">
+                    <form id="dataForm" action="view/admin/announcement.jsp" method="POST" style="display:none;">
+                         <meta charset="UTF-8">
+                        <input type="hidden" name="title" value="${ann.title}">
+                        <input type="hidden" name="image" value="${ann.image}">
+                        <input type="hidden" name="content" value="${ann.content}">
+                        <input type="hidden" name="creator" value="${ann.creator}">
+                    </form>
+                    <a class="button border-main" href="#" onclick="document.getElementById('dataForm').submit(); return false;">
+                        查看
+                    </a>
                     <a class="button border-red" href="javascript:void(0)" onclick="return del(${ann.announcementId})">
                         <span class="icon-trash-o"></span>
                         删除

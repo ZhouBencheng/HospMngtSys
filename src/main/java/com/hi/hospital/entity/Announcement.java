@@ -3,8 +3,30 @@ package com.hi.hospital.entity;
 public class Announcement {
     int announcementId;
     String title;
+    String image;
     String content;
     String creationTime;
+
+    @Override
+    public String toString() {
+        return "Announcement{" +
+                "announcementId=" + announcementId +
+                ", title='" + title + '\'' +
+                ", image='" + image + '\'' +
+                ", content='" + content + '\'' +
+                ", creationTime='" + creationTime + '\'' +
+                ", creator='" + creator + '\'' +
+                '}';
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     String creator;
 
     public int getAnnouncementId() {
@@ -47,14 +69,4 @@ public class Announcement {
         this.title = title;
     }
 
-    @Override
-    public String toString() {
-        return "Announcement{" +
-                "announcementId=" + announcementId +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                ", creationTime='" + creationTime + '\'' +
-                ", creator='" + creator + '\'' +
-                '}';
-    }
 }

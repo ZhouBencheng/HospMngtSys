@@ -8,6 +8,7 @@
     <resultMap id="annMap" type="com.hi.hospital.entity.Announcement">
         <id column="announcement_id" property="announcementId"/>
         <result column="title" property="title"/>
+        <result column="image" property="image"/>
         <result column="content" property="content"/>
         <result column="creation_time" property="creationTime"/>
         <result column="creator" property="creator"/>

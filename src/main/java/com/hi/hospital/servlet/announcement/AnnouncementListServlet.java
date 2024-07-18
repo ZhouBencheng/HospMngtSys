@@ -27,7 +27,7 @@ public class AnnouncementListServlet extends HttpServlet {
         PageInfo pageInfo = new AnnouncementServiceImpl().queryAll(Integer.parseInt(pageNum), 5);
 
         req.setAttribute("pageInfo", pageInfo);
-        System.out.println(pageInfo);
+//        System.out.println(pageInfo);
         req.getRequestDispatcher("view/admin/announcement_list.jsp").forward(req, resp);
 
     }
