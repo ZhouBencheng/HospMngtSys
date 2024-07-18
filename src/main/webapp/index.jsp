@@ -80,7 +80,7 @@
               <a class="nav-link text-dark p-0" href="javascript:void(0);" onclick="changeContent('/view/admin/doctors_list.jsp')">医生管理</a>
             </li>
             <li class="nav-item ps-4 pe-4 border-right">
-              <a class="nav-link text-dark p-0" href="#book-appointment">排班管理</a>
+              <a class="nav-link text-dark p-0" href="javascript:void(0);" onclick="changeContent('/view/admin/doctors_schedule_list.jsp')">排班管理</a>
             </li>
             <li class="nav-item ps-4 pe-4 border-right">
               <a class="nav-link text-dark p-0" href="javascript:void(0);" onclick="changeContent('/announcementList')">公告管理</a>
