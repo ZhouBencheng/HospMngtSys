@@ -26,5 +26,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         <mapper resource="com/hi/hospital/mapper/DepartmentsMapper.xml"/>
         <mapper resource="com/hi/hospital/mapper/DoctorsMapper.xml"/>
         <mapper resource="com/hi/hospital/mapper/DoctorScheduleMapper.xml"/>
+        <mapper resource="com/hi/hospital/mapper/AnnouncementMapper.xml"/>
     </mappers>
 </configuration>
