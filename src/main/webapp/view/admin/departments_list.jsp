@@ -64,7 +64,6 @@
 </head>
 <body>
 <div class="panel admin-panel">
-  <div class="panel-head"><strong class="icon-reorder"> 内容列表</strong></div>
   <div class="padding border-bottom">
     <button type="button" class="button border-yellow" onclick="window.location.href='view/admin/add.jsp'"><span class="icon-plus-square-o"></span> 添加分类</button>
   </div>
